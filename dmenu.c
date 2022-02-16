@@ -897,16 +897,8 @@ read_Xresources(void) {
 		XrmDatabase xdb = XrmGetStringDatabase(xrm);
 		XrmValue xval;
 
-		if (XrmGetResource(xdb, "dmenu.font", "*", &type, &xval) == True) /* font or font set */
-			fonts[0] = strdup(xval.addr);
-		if (XrmGetResource(xdb, "dmenu.color0", "*", &type, &xval) == True)  /* normal background color */
-			colors[SchemeNorm][ColBg] = strdup(xval.addr);
-		if (XrmGetResource(xdb, "dmenu.color4", "*", &type, &xval) == True)  /* normal foreground color */
-			colors[SchemeNorm][ColFg] = strdup(xval.addr);
-		if (XrmGetResource(xdb, "dmenu.color4", "*", &type, &xval) == True)  /* selected background color */
-			colors[SchemeSel][ColBg] = strdup(xval.addr);
-		if (XrmGetResource(xdb, "dmenu.color0", "*", &type, &xval) == True)  /* selected foreground color */
-			colors[SchemeSel][ColFg] = strdup(xval.addr);
+		/* if (XrmGetResource(xdb, "dmenu.font", "*", &type, &xval) == True) font or font set 
+			fonts[0] = strdup(xval.addr); */
 
 		XrmDestroyDatabase(xdb);
 	}
